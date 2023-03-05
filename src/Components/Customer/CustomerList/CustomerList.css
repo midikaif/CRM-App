@@ -1,0 +1,40 @@
+.customer-list{
+    padding: 1rem 1rem 0 1rem ;
+    border-radius: 25px;
+    border: 3px solid #382a24;
+}
+
+.customer-list-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+#search-bar{
+    height: 2rem;
+    /* margin-left: 1rem; */
+    border-style: none;
+    /* text-align: center; */
+    /* width: 2rem; */
+    outline: none;
+}
+
+#search{
+    padding-bottom: .5rem;
+    border-bottom: 1px solid rgba(10, 10, 10, 0.4);
+
+}
+
+.customer-list-header button{
+    margin-right: 1rem;
+    /* margin-left: 5.4rem;
+    margin-bottom: 1rem;
+    margin-top: .5rem; */
+    /* height: 2.5rem; */
+}
+
+
+.table-dark{
+    --bs-table-bg: tomato;
+    /* --bs-table-striped-bg: ; */
+}
+
