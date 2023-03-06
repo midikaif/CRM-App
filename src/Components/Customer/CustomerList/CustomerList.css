@@ -7,6 +7,7 @@
 .customer-list-header{
     display: flex;
     justify-content: space-between;
+    margin-bottom: .5rem;
 }
 
 #search-bar{
@@ -38,3 +39,21 @@
     /* --bs-table-striped-bg: ; */
 }
 
+.pagination{
+    --bs-pagination-padding-x: 1.25rem;
+    --bs-pagination-bg: tomato;
+    --bs-pagination-color: white;
+}
+
+.page-link:hover{
+    background-color: #2c3034;
+    color: white;
+    
+}
+.page-link:focus{
+    background-color: #2c3034;
+    color: white;
+    border-color:  #2c3034;
+    /* z-index: 3; */
+    box-shadow: 0px 0px 3px 3px tomato;
+}
