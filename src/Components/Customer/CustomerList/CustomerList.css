@@ -39,6 +39,23 @@
     /* --bs-table-striped-bg: ; */
 }
 
+.st-rejected{
+    background-color: #ff220036;
+    text-align: center;
+    box-shadow: 0px 0px 4px 2px #ff2503;
+}
+
+.st-new{
+    background-color: yellowgreen;
+    text-align: center;
+}
+.st-accepted{
+    background-color: green;
+    text-align: center;
+}
+
+
+
 .pagination{
     --bs-pagination-padding-x: 1.25rem;
     --bs-pagination-bg: tomato;

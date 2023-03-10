@@ -89,7 +89,9 @@ export default function CustomerList() {
                                 <th scope="row">{i + 1}</th>
                                 <td>{customer.name}</td>
                                 <td>{customer.ceo}</td>
-                                <td>{customer.status}</td>
+                                <td><div className={
+                                    customer.status === 'Rejected' ? 'st-rejected' : customer.status === 'New' ? 'st-new' : customer.status === 'Accepted' ? 'st-accepted' : ''
+                                }>{customer.status}</div></td>
                                 <td>{customer.employees}</td>
                                 <td>{customer.turnover}</td>
                                 <td>{customer.year}</td>
