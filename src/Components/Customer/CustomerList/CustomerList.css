@@ -39,10 +39,10 @@
     /* --bs-table-striped-bg: ; */
 }
 
-.st-rejected{
-    background-color: #ff220036;
+/* .st-rejected{
+    background-color: rgb(255, 101, 101);
+    color: black;
     text-align: center;
-    box-shadow: 0px 0px 4px 2px #ff2503;
 }
 
 .st-new{
@@ -50,9 +50,9 @@
     text-align: center;
 }
 .st-accepted{
-    background-color: green;
+    background-color: yellowgreen;
     text-align: center;
-}
+} */
 
 
 

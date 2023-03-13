@@ -1,0 +1,190 @@
+.dashboard {
+    display: flex;
+    justify-content: space-around;
+    margin: 3rem 0;
+}
+
+.allCustomer {
+    font-size: 1.8rem;
+    width: 15rem;
+    height: 10rem;
+    border-radius: 10px;
+}
+
+.allInnerFront {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border-top: 3px solid #2c3034;
+    border-bottom: 3px solid #2c3034;
+    color: black;
+}
+
+.allInnerBack {    
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background-color: #2c3034;
+    color: white;
+    transform: rotateY(180deg);
+}
+
+.allInnerFront, .allInnerBack{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    /* Safari */
+    backface-visibility: hidden;    
+}
+
+.allCustomer:hover .inner {
+    transform: rotateY(180deg);
+}
+
+
+.newCustomer {
+    font-size: 1.8rem;
+    width: 15rem;
+    height: 10rem;
+
+    border-radius: 10px;
+}
+
+/* rgb(44, 124, 245) */
+
+
+.newInnerFront {    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border-top: 3px solid rgb(44, 124, 245);
+    border-bottom: 3px solid rgb(44, 124, 245);
+    color: black;
+}
+
+.newInnerBack {    
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background-color: rgb(44, 124, 245);
+    color: white;
+    transform: rotateY(180deg);
+}
+
+.newInnerFront, .newInnerBack{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    /* Safari */
+    backface-visibility: hidden;    
+}
+.newCustomer:hover .inner {
+    transform: rotateY(180deg);
+}
+
+
+.rejectedCustomer {
+    font-size: 1.8rem;
+    width: 15rem;
+    height: 10rem;
+    border-radius: 10px;
+}
+
+.rejectedCustomer:hover .inner {
+    transform: rotateY(180deg);
+}
+
+
+.rejectedInnerFront {    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border-top: 3px solid rgb(255, 77, 77);
+    border-bottom: 3px solid rgb(255, 77, 77);
+    color: black;
+}
+
+.rejectedInnerBack {    
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background-color: rgb(255, 77, 77);
+    color: white;
+    transform: rotateY(180deg);
+}
+
+.rejectedInnerFront, .rejectedInnerBack{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    /* Safari */
+    backface-visibility: hidden;    
+}
+
+
+.acceptedCustomer {
+    font-size: 1.8rem;
+    width: 15rem;
+    height: 10rem;
+    border-radius: 10px;
+}
+
+.acceptedCustomer:hover .inner {
+    transform: rotateY(180deg);
+}
+
+.acceptedInnerFront {    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border-top: 3px solid rgb(116, 172, 4);
+    border-bottom: 3px solid rgb(116, 172, 4);
+    color: black;
+}
+
+.acceptedInnerBack {    
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background-color: rgb(116, 172, 4);
+    color: white;
+    transform: rotateY(180deg);
+}
+
+.acceptedInnerFront, .acceptedInnerBack{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    /* Safari */
+    backface-visibility: hidden;    
+}
+
+
+
+
+
+.inner {
+    border-radius: 10px;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+}

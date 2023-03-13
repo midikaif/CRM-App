@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Dashboard from '../../Dashboard/Dashboard';
 // import { Link } from 'react-router-dom';
 import './CustomerList.css'
 
@@ -7,30 +8,40 @@ export default function CustomerList() {
     const [customerList, setCustomerList] = useState([]);
     const [filteredCustomers, setFilteredCustomers] = useState([]);
     const [pages, setPages] = useState([]);
-    const [totalResults, setTotalResults] = useState(0);
+    const [statusNo, setStatusNo] = useState({});
     const navigate = useNavigate();
 
 
     useEffect(() => {
         load(1);
     }, []);
-    
+
     function load(pageNo) {
         fetch("https://mycrmserver.netlify.app/api/customer/page/" + pageNo)
-          .then((res) => {
-            return res.json();
-          })
-          .then((res) => {
-            setCustomerList(res.records);
-            setFilteredCustomers(res.records);
-    
-            let totalPages = Math.ceil(res.totalCount / 100);
-            let arrayOfPages = new Array(totalPages).fill(0);
-            console.log(arrayOfPages);
-            setPages(arrayOfPages);
-          });
-      }
-    
+            .then((res) => {
+                return res.json();
+            })
+            .then((res) => {
+                setCustomerList(res.records);
+                setFilteredCustomers(res.records);
+
+                let totalPages = Math.ceil(res.totalCount / 100);
+                let arrayOfPages = new Array(totalPages).fill(0);
+                setPages(arrayOfPages);
+                const newPages = res.records.filter((e) => e.status === 'New').length
+                const rejectedPages = res.records.filter((e) => e.status === 'Rejected').length
+                const acceptedPages = res.records.filter((e) => e.status === 'Accepted').length
+                let status = {
+                    total: res.records.length,
+                    newPages: newPages,
+                    rejectedPages: rejectedPages,
+                    acceptedPages: acceptedPages
+                }
+                setStatusNo(status)
+                console.log(statusNo, 'its e');
+            });
+    }
+
 
 
 
@@ -47,13 +58,32 @@ export default function CustomerList() {
     }
 
     function handleNext() {
-       
-        
+
+
     }
 
+    function allCustomer() {
+        // const result = customerList.filter(c => c.name.includes('key'));
+        setFilteredCustomers([...customerList])
+    }
+
+    function newCustomer() {
+        const result = customerList.filter(c => c.status.includes('New'));        
+        setFilteredCustomers([...result])
+    }
+
+    function rejectedCustomer() {
+        const result = customerList.filter(c => c.status.includes('Rejected'));        
+        setFilteredCustomers([...result])
+    }
+    function acceptedCustomer() {
+        const result = customerList.filter(c => c.status.includes('Accepted'));        
+        setFilteredCustomers([...result])
+    }
 
     return (
         <div className='container my-3'>
+            <Dashboard statusCount={statusNo} allCustomer={allCustomer} newCustomer={newCustomer} rejectedCustomer={rejectedCustomer} acceptedCustomer={acceptedCustomer} />
             <div className='customer-list'>
                 <div className='customer-list-header'>
                     <h1>Customers List</h1>
@@ -99,23 +129,23 @@ export default function CustomerList() {
                         ))}
                     </tbody>
                 </table>
-            <nav aria-label="Page navigation example">
-                <ul className="pagination pagination-m d-flex justify-content-center">
-                    <li className={`page-item`}><a className="page-link" href="#">Previous</a></li>
-                    {/* <li className={`page-item ${page.pageNo<2 ? 'disabled' : ''}`}><a className="page-link" href="#">Previous</a></li> */}
-                    {
-                  pages.map((p, i) =>
-                    <li class="page-item"><button class="page-link"
-                      onClick={() => {
-                        load(i + 1);
-                      }}
-                    >{i + 1}</button></li>
-                  )
-                }
-                    {/* <li className={`page-item ${page.pageNo<Math.ceil(totalResults/100) ? '' : 'disabled'}`}><button className="page-link" onClick={handleNext}>Next</button></li> */}
-                    <li className={`page-item`}><button className="page-link" onClick={handleNext}>Next</button></li>
-                </ul>
-            </nav>
+                <nav aria-label="Page navigation example">
+                    <ul className="pagination pagination-m d-flex justify-content-center">
+                        <li className={`page-item`}><a className="page-link" href="#">Previous</a></li>
+                        {/* <li className={`page-item ${page.pageNo<2 ? 'disabled' : ''}`}><a className="page-link" href="#">Previous</a></li> */}
+                        {
+                            pages.map((p, i) =>
+                                <li class="page-item"><button class="page-link"
+                                    onClick={() => {
+                                        load(i + 1);
+                                    }}
+                                >{i + 1}</button></li>
+                            )
+                        }
+                        {/* <li className={`page-item ${page.pageNo<Math.ceil(totalResults/100) ? '' : 'disabled'}`}><button className="page-link" onClick={handleNext}>Next</button></li> */}
+                        <li className={`page-item`}><button className="page-link" onClick={handleNext}>Next</button></li>
+                    </ul>
+                </nav>
             </div>
         </div>
     )
